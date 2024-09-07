@@ -25,19 +25,16 @@ let score = 0;
 let palabraRandom = '';
 let timerInterval;
 
-// Función para obtener un número entero aleatorio en un rango
 function getRandomIntInRange(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-// Función para seleccionar una palabra aleatoria
 function setRandomWord() {
     const randomIndex = getRandomIntInRange(0, words.length);
     palabraRandom = words[randomIndex];
     document.getElementById('randomWord').textContent = palabraRandom;
 }
 
-// Función para manejar el input del usuario
 function handleInput(e) {
     const palabraIngresada = e.target.value;
     
@@ -50,7 +47,6 @@ function handleInput(e) {
     }
 }
 
-// Función para actualizar el tiempo en pantalla
 function actualizarTiempo() {
     if (time > 0) {
         time--;
@@ -61,13 +57,11 @@ function actualizarTiempo() {
     }
 }
 
-// Función para actualizar el puntaje
 function updateScore() {
     score++;
     document.getElementById('score').textContent = score;
 }
 
-// Función para mostrar el estado final del juego
 function gameOver() {
     const endGameContainer = document.getElementById('end-game-container');
     endGameContainer.innerHTML = `
@@ -78,12 +72,10 @@ function gameOver() {
     document.querySelector('.main').style.display = 'none';
 }
 
-// Función para reiniciar el juego
 function restartGame() {
     location.reload();
 }
 
-// Inicializar el juego
 function init() {
     setRandomWord();
     document.getElementById('text').addEventListener('input', handleInput);
